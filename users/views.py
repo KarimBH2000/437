@@ -3,7 +3,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 
-
+# Handles registration of Users.
+# Checks if input fields of user are valid with UserForm and is not already in db. 
+# Returns the appropriate html page after check.
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -17,6 +19,10 @@ def register(request):
     return render(request, 'users/register.html', {'form': form})
 
 
+# Handles profile update of user.
+# Checks if input fields of user are valid with ProfileUpdateForm.
+# Checks if username and email are unique. If check is valid, updates profile.
+# Returns the appropriate html page after check.
 @login_required
 def profile(request):
     if request.method == 'POST':

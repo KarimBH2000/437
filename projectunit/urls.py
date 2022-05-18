@@ -8,6 +8,10 @@ from .views import (
 )
 from . import views
 
+# The urlpatterns below matches the url requested to its corresponding views and templates.
+# These urls handle all requests related to posts (CRUD).
+# Plus a url path to the about page.
+
 urlpatterns = [
     path('', PostListView.as_view(), name='projectunit-home'),
     path('post/<int:pk>/', PostDetailView.as_view(), name='post-detail'),

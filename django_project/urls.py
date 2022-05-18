@@ -20,6 +20,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from users import views as user_views
 
+# The urlpatterns below matches the url requested to its corresponding in views and templates.
+# This urls.py file include the main paths.
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', user_views.register, name='register'),
